@@ -76,6 +76,7 @@
                                 {-1ex plus -.5ex minus -.2ex}%
                                 {1ex plus .2ex}%
                                 {\normalfont\small\bfseries}}
+
 % change font
 %\renewcommand{\familydefault}{\sfdefault}
 %\renewcommand\rmdefault{\sfdefault}
@@ -237,7 +238,7 @@ They can be addressed by the \textbf{splicing of data} according to the confound
 	\textbf{Spread}: IQR gives us idea of the spread for the middle 50\% of the data set, used to measure across different distributions.
 \end{itemize}
 
-	\textbf{Boxplots vs. Histograms}:\\
+\textbf{Boxplots vs. Histograms}:\\
 Histogram: Better sense of shape of distribution of a variable. Boxplot: Better identifies and indicates outliers. Bottom line: Used together to complement each other.
 
 \subsection{Bivariate EDA}
@@ -247,13 +248,18 @@ Histogram: Better sense of shape of distribution of a variable. Boxplot: Better 
 	\item \textbf{Association (Non-Deterministic)} Statistical relation, given one variable value, we can describe average value of the other variable. \\
 	\item Consider scatterplots (idea of pattern), correlation coefficients (check for linear relation) and regression analysis (fitting line or curve to data).
 \end{itemize}
-
 \subsubsection{Scatter Plots}
-	\textbf{Direction, Form, Strength and Outliers.}
+\textbf{Direction, Form, Strength and Outliers.}
 \begin{itemize}
 	\item Direction: Positive / Negative relationship or neither (curved). 
 	\item Form: General shape, classify as linear or non-linear. 
 	\item Strength: How closely data follows form.
+\end{itemize}
+
+\subsection{Fallacies}
+\begin{itemize}
+	\item \textbf{Atomistic Fallacy}: Individual level correlation to conclude ecological (aggregate level) correlation
+	\item \textbf{Ecological Fallacy}: Ecological (aggregate level) correlation to conclude individual level correlation
 \end{itemize}
 
 \subsection{Correlation Coefficient, r}
@@ -265,7 +271,8 @@ Histogram: Better sense of shape of distribution of a variable. Boxplot: Better 
 	\item \textbf{Properties of r}: r is not affected by adding a number to all values of a variable, or by multiplying a positive number to all values of a variable.
 	\item \textbf{Limitations of r}: Association is not causation. \\
 	r does not give indication of non-linear association. \\
-	Outliers can affect the correlation coefficient r significantly.
+	Outliers can affect the correlation coefficient r significantly. \\
+        \item \textbf{Standard Unit}: $\frac{x - \bar x}{s_x}$
 \end{itemize}
 
 \subsection{Linear Regression}
@@ -273,7 +280,7 @@ If we believe that two variables are linearly associated, we may model relations
 \begin{itemize}
 	\item \textbf{The slope of the line} is the amount of change in Y when the value of X increases by 1.
 	\item \textbf{Finding Regression Line: Method of least squares}: Fit the line to minimize the square of error terms. Hence, two regression lines are different and not interchangeable.
-	\includegraphics[width = \linewidth]{leastsquares}
+	\begin{center}\includegraphics[width = .75\linewidth]{leastsquares}\end{center}
 	\item \textbf{Slope vs. Correlation Coefficient} Slope of regression line and correlation coefficient related by: \\
 	\centerline{ \large $ m = \frac{s_y}{s_x} r $ }
 	where $s_y$ is the standard deviation for y and $s_x$ is the standard deviation for x.
@@ -304,8 +311,9 @@ Probability as a mathematical means to reason about uncertainty.
 
 \begin{itemize}
 	\item \textbf{Mutually Exclusive Events}: No overlap between E and F, meaning not simultaneously possible. Then, $P(E \cap F) = 0 $. If an event F itself cannot occur, then by convention $P(E \cap F) $ is also equal 0.
-	\item \textbf{Law of Total Probability}:
-	\includegraphics[width = \linewidth]{lawoftotalprobability}
+	\item \textbf{Law of Total Probability}: \\
+        If $E$, $F$, $G$ are events from sample space $S$, and (i) $E$ and $F$ are mutually exclusive and (ii) $E\cup F = S$,\\
+        $P(G) = P(G|E) \times P(E) + P(G|F) \times P(F)$
 	\item Analogy between Probability and Sampling:
 	\includegraphics[width = \linewidth]{tableanalogy}
 	\item \textbf{Conditional Probabilities}: equivalent to conditional rate:
@@ -336,7 +344,7 @@ A class of continuous random variables. $N(x,y)$. (bell curve god)
 \begin{itemize}
 	\item Normal Distributions only differ by means and variances. (mean $x$, variance $y$).
 	\item \textbf{Common Properties}: Bell-shaped curve, Peak of curve occurs at the mean, Curve is symmetrical about the mean. (Mean = Mode = Median).
-	\includegraphics[width = \linewidth]{normaldistribution}
+	\begin{center}\includegraphics[width = .9\linewidth]{normaldistribution}\end{center}
 \end{itemize}
 
 
@@ -359,8 +367,9 @@ Using a sample statistic to estimate the population parameter is subjected to in
 	$n$ = sample size
 
 	\item \textbf{Interpreting Confidence Interval: } \\ Two parts: \textbf{Confidence Level} (e.g. 95\%) and \textbf{	Interval} (e.g. 0.254 $\pm$ 0.0191 [margin of error]) \\
-	This means: we are 95\% confident that the population proportion (parameter in this case) of food transactions that are from Terrace (a certain category), lies within the confidence interval. \\
-	\textbf{Idea of confidence level}: 95 of 100 SRS of same size will contain population parameter. (Exact value not known) (** Not \sout{95\% chance}, chances are in sampling procedure, not parameter.)
+	This means: we are 95\% confident that the population parameter (e.g. mean) lies within the confidence interval. \\
+	\textbf{Idea of confidence level}: 95 of 100 SRS of same size will contain an unknown population parameter.\\
+        (** Not \sout{95\% chance}, chances are in sampling procedure)
 	\item \textbf{Properties of CI}: The larger the sample size, the smaller the random error, narrower CI. The higher the confidence level, the wider the CI. CI is way to quantify random error.
 
 \end{itemize}
@@ -384,8 +393,8 @@ Using a sample statistic to estimate the population parameter is subjected to in
 	\item \textbf{Significance level}: How convincing evidence must be to reject $H_\circ$ 
 	\item The lower the S.L., the greater the evidence needed. Commonly used is 0.05 level, or 5\% level of Sig, or 0.1 (10\%), or 0.01 (1\%).
 	\item \textbf{p-value}: Probability of obtaining test result at least as extreme as result observed, assuming null hypothesis is true. \\
-	Also the \textbf{probability of observing test result that favours alternative hypothesis} at least as much as observed in current sample, assuming null hypo is true.
-	\includegraphics[width = \linewidth]{pvalue}
+	Also the \textbf{probability of observing test result that favours alternative hypothesis} at least as much as observed in current sample, assuming null hypo is true.\\
+     \textbf{Small p-value}: \textbf{Less likely} to observe a test result that is at least as extreme as observation in sample if $H_0$ is true.\\
 \end{itemize}
 
 
@@ -403,13 +412,16 @@ Using a sample statistic to estimate the population parameter is subjected to in
 One-sample t-test and Chi-squared test:
 	\includegraphics[width = \linewidth]{commonhypotest}
 
-
-
-
-
-
-
-
-
+    \subsection{Fallacies}
+    \begin{itemize}
+        \item \textbf{Prosecutor's Fallacy}: Thinking $P(A|B) = P(B|A)$
+        \item \textbf{Conjunction Fallacy}: Thinking $P(A \cap B) > P(A)$
+        \item \textbf{Base Rate Fallacy}: Using solely facts to conclude, and ignoring base rate of disease/trait of population
+    \end{itemize}
+    
+    \subsection{Sensitivity \& Specificity}
+    Using COVID tests as example, \\
+    \textbf{Sensitivity}: $P(\text{Positive} | \text{Has COVID})$ \\
+    \textbf{Specificity}: $P(\text{Negative} | \text{Does not have COVID})$ \\
 \end{multicols*}
 \end{document}
